@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI List</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+
 <body>
-    
+    <div class="container mt-5">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Height</th>
+                <th scope="col">BMI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="bmi:${bmiList}">
+                <td th:text="${bmi.id}"></td>
+                <td th:text="${bmi.name}"></td>
+                <td th:text="${bmi.weight}"></td>
+                <td th:text="${bmi.height}"></td>
+                <td th:text="${bmi.bmi}"></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
 </body>
+
 </html>
