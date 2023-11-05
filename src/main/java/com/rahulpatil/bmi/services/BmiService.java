@@ -25,4 +25,14 @@ public class BmiService {
                 "select * from bmi",
                 new BmiMapper());
     }
+
+    public long addOne(BmiModel bmiModel) {
+        long result = jdbcTemplate.update(
+                "insert into bmi(name,weight,height,bmi)values(?,?,?,?)",
+                bmiModel.getName(),
+                bmiModel.getWeight(),
+                bmiModel.getHeight(),
+                bmiModel.getBmi());
+        return result;
+    }
 }

@@ -6,7 +6,10 @@ public class BmiModel {
     float weight;
     float height;
     float bmi;
-    
+
+    public BmiModel() {
+    }
+
     public BmiModel(int id, String name, float weight, float height, float bmi) {
         this.id = id;
         this.name = name;
@@ -60,6 +63,4 @@ public class BmiModel {
     public void setBmi(float bmi) {
         this.bmi = bmi;
     }
-
-    
 }
