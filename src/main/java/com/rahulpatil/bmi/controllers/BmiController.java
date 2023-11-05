@@ -34,7 +34,11 @@ public class BmiController {
 
     @PostMapping("/calculateBMI")
     public String calculateBMI(BmiModel bmiModel, Model model) {
-        bmiModel.setBmi(bmiModel.getWeight() / (bmiModel.getHeight() * bmiModel.getHeight()));
+        // Height in meters
+        // 0.3048 is the conversion factor to convert feet to meters
+        float heightM = bmiModel.getHeight() * 0.3048f;
+
+        bmiModel.setBmi(bmiModel.getWeight() / (heightM * heightM));
 
         bmiService.addOne(bmiModel);
 
