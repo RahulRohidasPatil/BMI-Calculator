@@ -14,4 +14,10 @@ public class BmiModel {
         this.height = height;
         this.bmi = bmi;
     }
+
+    @Override
+    public String toString() {
+        return "BmiModel [id=" + id + ", name=" + name + ", weight=" + weight + ", height=" + height + ", bmi=" + bmi
+                + "]";
+    }
 }
