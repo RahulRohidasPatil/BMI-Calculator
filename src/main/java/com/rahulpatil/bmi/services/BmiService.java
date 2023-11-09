@@ -36,3 +36,9 @@ public class BmiService {
         return result;
     }
 }
+
+/*
+ * Author: Rahul Patil
+ * Matriculation Number: 1478745
+ * Created: 05.11.2023
+ */

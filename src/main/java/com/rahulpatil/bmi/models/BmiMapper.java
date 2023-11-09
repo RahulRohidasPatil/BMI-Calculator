@@ -20,3 +20,9 @@ public class BmiMapper implements RowMapper<BmiModel> {
     }
 
 }
+
+/*
+ * Author: Rahul Patil
+ * Matriculation Number: 1478745
+ * Created: 05.11.2023
+ */

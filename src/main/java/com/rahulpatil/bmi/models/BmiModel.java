@@ -40,6 +40,12 @@ public class BmiModel {
         this.name = name;
     }
 
+    /*
+     * Author: Rahul Patil
+     * Matriculation Number: 1478745
+     * Created: 05.11.2023
+     */
+
     public float getWeight() {
         return weight;
     }
@@ -64,3 +70,9 @@ public class BmiModel {
         this.bmi = bmi;
     }
 }
+
+/*
+ * Author: Rahul Patil
+ * Matriculation Number: 1478745
+ * Created: 05.11.2023
+ */
