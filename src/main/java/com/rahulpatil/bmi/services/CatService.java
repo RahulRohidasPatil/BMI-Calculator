@@ -14,9 +14,6 @@ public class CatService {
     }
 
     public String fetchFactsFromApi() {
-        // CatFact[] catFacts =
-        // restTemplate.getForObject("https://cat-fact.herokuapp.com/facts",
-        // CatFact[].class);
         ResponseEntity<String> responseEntity = restTemplate.getForEntity("https://cat-fact.herokuapp.com/facts",
                 String.class);
         String jsonResponse = responseEntity.getBody();
