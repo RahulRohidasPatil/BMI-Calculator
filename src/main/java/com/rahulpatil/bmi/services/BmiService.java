@@ -28,7 +28,7 @@ public class BmiService {
 
     public long addOne(BmiModel bmiModel) {
         long result = jdbcTemplate.update(
-                "insert into bmi(name,weight,height,bmi)values(?,?,?,?)",
+                "insert into bmi(name,height,weight,bmi)values(?,?,?,?)",
                 bmiModel.getName(),
                 bmiModel.getWeight(),
                 bmiModel.getHeight(),

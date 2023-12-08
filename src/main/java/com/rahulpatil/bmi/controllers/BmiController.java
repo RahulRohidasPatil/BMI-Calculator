@@ -3,16 +3,17 @@ package com.rahulpatil.bmi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.rahulpatil.bmi.models.BmiModel;
 import com.rahulpatil.bmi.services.BmiService;
 
-@Controller
+@RestController
 @RequestMapping("/bmi")
 public class BmiController {
 
@@ -20,13 +21,13 @@ public class BmiController {
     BmiService bmiService;
 
     @GetMapping("/")
-    public String homePage(Model model) {
+    public List<BmiModel> homePage(Model model) {
         List<BmiModel> bmiList = bmiService.getBmiList();
 
         model.addAttribute("bmiModel", new BmiModel());
         model.addAttribute("bmiList", bmiList);
 
-        return "addBmi";
+        return bmiList;
     }
 
     /*
@@ -36,20 +37,14 @@ public class BmiController {
      */
 
     @PostMapping("/calculateBMI")
-    public String calculateBMI(BmiModel bmiModel, Model model) {
+    public String calculateBMI(@RequestBody BmiModel bmiModel) {
         // Height in meters
         // 0.3048 is the conversion factor to convert feet to meters
+        System.out.println(bmiModel);
         float heightM = bmiModel.getHeight() * 0.3048f;
         bmiModel.setBmi(bmiModel.getWeight() / (heightM * heightM));
         bmiService.addOne(bmiModel);
-
-        List<BmiModel> bmiList = bmiService.getBmiList();
-        model.addAttribute("bmiModel", new BmiModel());
-
-        model.addAttribute("bmiModel", bmiModel);
-        model.addAttribute("bmiList", bmiList);
-
-        return "addBmi";
+        return "{message:'Added Successfully'}";
     }
 }
 
